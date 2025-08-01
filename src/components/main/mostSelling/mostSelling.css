@@ -1,0 +1,63 @@
+.most-selling {
+  padding-top: 40px;
+}
+.most-selling .selling-Prods {
+  gap: 40px;
+  justify-content: center;
+}
+.most-selling .selling-card {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.most-selling .selling-card .selling-image {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin-bottom: 10px;
+}
+.most-selling .selling-card .selling-image::before {
+  content: "on sale";
+  padding: 3px 10px;
+  background-color: #f00;
+  border-radius: 6px;
+  color: #fff;
+  position: absolute;
+  left: -22px;
+  rotate: -45deg;
+}
+.most-selling .selling-card .selling-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.most-selling .selling-card .selling-name {
+  font-size: 22px;
+}
+.most-selling .selling-card .selling-price {
+  gap: 20px;
+}
+.most-selling .selling-card .selling-price .price:nth-child(1) {
+  color: #f00;
+  font-size: 19px;
+}
+.most-selling .selling-card .selling-price .price:nth-child(2) {
+  text-decoration: line-through;
+  font-size: 18px;
+}
+.most-selling .selling-card .selling-rating {
+  color: var(--main-color);
+}
+@media(max-width: 750px) {
+  .most-selling .selling-Prods {
+    justify-content: space-evenly;
+  }
+}
+@media(max-width: 590px) {
+  .most-selling .selling-Prods {
+    flex-direction: column;
+  }
+}

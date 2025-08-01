@@ -1,0 +1,60 @@
+.banner {
+  margin-bottom: 30px;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 15px;
+}
+.banner .banner-content {
+  padding-block: 15px;
+  gap: 50px;
+}
+.banner .banner-text {
+  flex-basis: 75%;
+  font-size: 48px;
+  position: relative;
+  text-transform: uppercase;
+}
+.banner .banner-text::before,
+.banner .banner-text::after {
+  content: "\f621";
+  font-weight: 900;
+  font-family: "Font Awesome 6 Free";
+  position: absolute;
+  color: #000;
+  font-size: 18px;
+}
+.banner .banner-text::before{
+  top: -10px;
+}
+.banner .banner-text::after {
+  bottom: -10px;
+}
+.banner .banner-image {
+  flex-basis: 20%;
+  max-width: 190px;
+}
+.banner .banner-image img {
+  width: 100%;
+  border-radius: 50%;
+}
+@media(max-width: 720px) {
+  .banner .banner-text {
+    font-size: 38px;
+  }
+}
+@media(max-width: 590px) {
+  .banner .banner-text {
+    font-size: 30px;
+  }
+  .banner .banner-image {
+    flex-basis: 30%;
+  }
+}
+@media(max-width: 490px) {
+  .banner .banner-text::before {
+    top: -20px;
+  }
+  .banner .banner-text {
+    font-size: 18px;
+  }
+}

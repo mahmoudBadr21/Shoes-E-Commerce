@@ -1,0 +1,79 @@
+.contact {
+  min-height: 100vh;
+  padding-top: 200px;
+  padding-bottom: 60px;
+}
+.contact .main-title {
+  color: var(--main-color);
+  letter-spacing: 8px;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+.contact .main-title::after {
+  content: 'us';
+  color: #777;
+  font-size: 22px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.contact .contact-content {
+  padding-top: 20px;
+  width: 70%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.contact .contact-content .contact-prag {
+  font-size: 22px;
+}
+.contact .contact-content .contact-prag:first-of-type,
+.contact .contact-content .contact-prag:last-of-type {
+  font-size: 26px;
+}
+.contact .contact-content .contact-prag i {
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.contact .contact-content .contact-icons {
+  font-size: 28px;
+  justify-content: center;
+  gap: 30px;
+}
+.contact .contact-content .contact-icons i {
+  padding: 8px;
+  background-color: var(--main-color);
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+}
+.contact .contact-content .contact-icons i:hover {
+  background-color: #fff;
+  color: var(--main-color);
+}
+@media (max-width: 860px) {
+  .contact .contact-content {
+    width: 90%;
+  }
+  .contact .contact-content .contact-prag:first-of-type,
+  .contact .contact-content .contact-prag:last-of-type {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+@media (max-width: 590px) {
+  .contact .contact-content .contact-prag {
+    font-size: 20px;
+    }
+  .contact .contact-content .contact-prag:first-of-type,
+  .contact .contact-content .contact-prag:last-of-type {
+    font-size: 22px;
+  }
+}

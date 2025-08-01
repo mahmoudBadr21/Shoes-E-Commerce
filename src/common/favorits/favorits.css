@@ -1,0 +1,18 @@
+.favorits {
+  min-height: 75vh;
+  padding-top: 200px;
+  padding-bottom: 60px;
+}
+.favorits .main-title::before {
+  content: 'your';
+  top: -15px;
+}
+.favorits .main-title::after {
+  content: 'products';
+  bottom: -15px;
+}
+@media(max-width: 490px) {
+  .favorits .main-title::after {
+    right: 35px;
+  }
+}
