@@ -18,5 +18,3 @@ const Banner = () => {
 }
 
 export default Banner
-
-// \f621

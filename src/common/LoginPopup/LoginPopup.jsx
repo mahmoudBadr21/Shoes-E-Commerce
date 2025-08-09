@@ -14,10 +14,19 @@ const LoginPopup = ({setShowLogin}) => {
 
         <div className="login-popup-inputs">
           {currState === 'Login' ? <></> :
-            <input type="text" placeholder='Your name' required />
+          <div>
+            <input type="text" id='yourName' placeholder=' ' required />
+            <label htmlFor="yourName">Your name</label>
+          </div>
           }
-          <input type="email" placeholder='Your email' required />
-          <input type="password" placeholder='Your password' required />
+          <div>
+            <input type="email" id='yourEmail' placeholder=' ' required ></input>
+            <label htmlFor="yourEmail">Your email</label>
+          </div>
+          <div>
+            <input type="password" id='yourPassword' placeholder=' ' required />
+            <label htmlFor="yourPassword">Your password</label>
+          </div>
         </div>
         
         <button>
