@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import CategoryItem from './CategoryItem'
 
-const Category = () => {
+const Category = ({ cartIconRef }) => {
   const { type } = useParams()
   const { allProducts, addToCart, addToFav, favItem } = useContext(StoreContext)
   const [item, setItem] = useState([])
@@ -32,7 +32,7 @@ const Category = () => {
           item.map((value, index) => {
             const isFav = favProd.some(prod => prod[0] == value.id && prod[1] > 0)
             return (
-              <CategoryItem key={index} isFav={isFav} img={value.img} id={value.id} made={value.made} numReviews={value.numReviews} shortName={value.shortName} fullName={value.fullName} price={value.price} addToFav={addToFav} addToCart={addToCart} />
+              <CategoryItem key={index} cartIconRef={cartIconRef} isFav={isFav} img={value.img} id={value.id} made={value.made} numReviews={value.numReviews} shortName={value.shortName} fullName={value.fullName} price={value.price} addToFav={addToFav} addToCart={addToCart} />
             );
           })
         }

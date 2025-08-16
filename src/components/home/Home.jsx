@@ -7,11 +7,11 @@ import Services from '../main/services/Services'
 import Store from '../main/store/Store'
 import './home.css'
 
-const Home = () => {
+const Home = ({cartIconRef}) => {
   return (
     <section className='home'>
       <Head />
-      <OurProducts />
+      <OurProducts cartIconRef={cartIconRef} />
       <Store />
       <MostSelling />
       <Services />

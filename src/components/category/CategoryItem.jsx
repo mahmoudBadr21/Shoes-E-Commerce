@@ -1,6 +1,15 @@
 import { motion } from "framer-motion"
+import { useContext, useRef } from 'react'
+import { StoreContext } from '../../context/StoreContext'
 
-const CategoryItem = ({isFav, img, id, made, numReviews, shortName, fullName, price, addToFav, addToCart }) => {
+const CategoryItem = ({cartIconRef, isFav, img, id, made, numReviews, shortName, fullName, price, addToFav, addToCart }) => {
+  const { flyToCart } = useContext(StoreContext)
+  const productImgRef = useRef()
+
+  const handleAddToCart = () => {
+    addToCart(id)
+    flyToCart(productImgRef.current, cartIconRef.current)
+  }
 
   return (
     <motion.div
@@ -15,7 +24,7 @@ const CategoryItem = ({isFav, img, id, made, numReviews, shortName, fullName, pr
       }}
     >
       <div className="category-image">
-        <img src={img} alt="img" />
+        <img ref={productImgRef} src={img} alt="img" />
         <i
           onClick={() => addToFav(id)}
           className={`${isFav ? "fas fa-heart fav-active" : "far fa-heart"}`}
@@ -36,7 +45,7 @@ const CategoryItem = ({isFav, img, id, made, numReviews, shortName, fullName, pr
 
       <h5 className="category-price">${price}</h5>
 
-      <button className="btn" onClick={() => addToCart(id)}>
+      <button className="btn" onClick={() => handleAddToCart(id)}>
         <i className="fas fa-shopping-cart"></i>
         <span>Add To Cart</span>
       </button>

@@ -17,6 +17,7 @@ import Contact from './common/contact/Contact'
 function App() {
   const [isTopOfPage, setIsTopOfPage] = useState(true)
   const [showLogin, setShowLogin] = useState(false)
+  const [cartIconRef, setCartIconRef] = useState(null)
 
   useEffect ( ()=> {
     const handleScroll = ()=> {
@@ -31,14 +32,14 @@ function App() {
     <>
       <section className="app">
         {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
-        <Navbar isTopOfPage={isTopOfPage} showLogin={showLogin} setShowLogin={setShowLogin} />
+        <Navbar setCartIconRef={setCartIconRef} isTopOfPage={isTopOfPage} showLogin={showLogin} setShowLogin={setShowLogin} />
         <ScrollHandler />
         <Routes>
-          <Route path='/' element={<Home />} exact />
-          <Route path='/category/:type' element={<Category />} exact />
+          <Route path='/' element={<Home cartIconRef={cartIconRef} />} exact />
+          <Route path='/category/:type' element={<Category cartIconRef={cartIconRef} />} exact />
           <Route path='/cart' element={<Cart />} exact />
-          <Route path='/favorits' element={<Favorits />} exact />
-          <Route path='/sale' element={<Sale />} exact />
+          <Route path='/favorits' element={<Favorits cartIconRef={cartIconRef} />} exact />
+          <Route path='/sale' element={<Sale cartIconRef={cartIconRef} />} exact />
           <Route path='/about' element={<About />} exact />
           <Route path='/contact' element={<Contact />} exact />
         </Routes>

@@ -6,7 +6,7 @@ import 'swiper/css'
 import { sliderSettings } from '../../../assets/commen'
 import ProductsItem from "./ProductsItem"
 
-const OurProducts = () => {
+const OurProducts = ({cartIconRef}) => {
   const { allProducts } = useContext(StoreContext)
 
   const [randomProducts, setRandomProducts] = useState([])
@@ -35,6 +35,7 @@ const OurProducts = () => {
                   shortName={value.shortName}
                   price={value.price}
                   id={value.id}
+                  cartIconRef={cartIconRef}
                 />
               </SwiperSlide>
             );

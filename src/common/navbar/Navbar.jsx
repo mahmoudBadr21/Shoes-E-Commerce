@@ -1,11 +1,14 @@
 import { NavLink, Link } from 'react-router-dom'
 import './navbar.css'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { StoreContext } from '../../context/StoreContext'
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-const Navbar = ({ isTopOfPage, setShowLogin, showLogin }) => {
-  const { cartLength } = useContext(StoreContext)
+const Navbar = ({ setCartIconRef, isTopOfPage, setShowLogin, showLogin }) => {
+  const { cartLength, favArray } = useContext(StoreContext)
+
+  const cartIconRef = useRef()
+  setCartIconRef(cartIconRef)
 
   return (
     <section className={`navbar ${isTopOfPage ? "" : "spcBackground"}`}>
@@ -41,21 +44,41 @@ const Navbar = ({ isTopOfPage, setShowLogin, showLogin }) => {
               showLogin ? "active-nav" : ""
             }`}
           ></i>
+
           <NavLink
             to={"/favorits"}
             className={({ isActive }) => (isActive ? "active-nav" : "")}
           >
-            <i className="fas fa-heart"></i>
+            <motion.i className="fas fa-heart" key={favArray.length}
+            initial={{ scale: 1 }}
+            animate={{ scale: [1, 1.4, 1] }}
+            transition={{ duration: 0.2 }}></motion.i>
           </NavLink>
-          <div className="cart-icon">
+
+          <motion.div
+            className="cart-icon"
+            ref={cartIconRef}
+            key={cartLength}
+            initial={{ scale: 1 }}
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 0.3 }}
+          >
             <NavLink
               to={"/cart"}
               className={({ isActive }) => (isActive ? "active-nav" : "")}
             >
               <i className="fa fa-shopping-bag icon-circle"></i>
             </NavLink>
-            <span>{cartLength == 0 ? "" : cartLength}</span>
-          </div>
+            <motion.span
+              key={cartLength}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {cartLength == 0 ? "" : cartLength}
+            </motion.span>
+          </motion.div>
         </div>
       </div>
 

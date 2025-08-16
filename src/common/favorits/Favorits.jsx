@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import CategoryItem from '../../components/category/CategoryItem'
 
-const Favorits = () => {
+const Favorits = ({cartIconRef}) => {
   const { allProducts, favItem, addToFav, addToCart, favArray } = useContext(StoreContext)
   
   return (
@@ -17,7 +17,7 @@ const Favorits = () => {
               if (favItem[value.id] > 0) {
                 const isFav = favArray.some(prod => prod[0] == value.id)
                 return (
-                  <CategoryItem key={index} isFav={isFav} img={value.img} id={value.id} made={value.made} numReviews={value.numReviews} shortName={value.shortName} fullName={value.fullName} price={value.price} addToFav={addToFav} addToCart={addToCart} />
+                  <CategoryItem key={index} cartIconRef={cartIconRef} isFav={isFav} img={value.img} id={value.id} made={value.made} numReviews={value.numReviews} shortName={value.shortName} fullName={value.fullName} price={value.price} addToFav={addToFav} addToCart={addToCart} />
                 )
               }
             })
